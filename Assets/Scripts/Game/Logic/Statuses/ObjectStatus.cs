@@ -38,6 +38,7 @@ namespace StarterAssets.Game.Model
         public void Start()
         {
             Tick();
+            if (Duration == 0) _aborted = true;
         }
 
         public void Update(float deltaTime)

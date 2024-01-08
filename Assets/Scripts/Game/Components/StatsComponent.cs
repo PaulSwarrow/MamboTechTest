@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using StarterAssets.Game.Data;
+using StarterAssets.Game.Logic;
+using UnityEditorInternal;
 using UnityEngine;
 
 namespace StarterAssets.Game.Components
 {
     public class StatsComponent : MonoBehaviour
     {
+        public event GameUtils.StatChangeDelegate StatChangeEvent;
         //TODO: proper object initialization
         [Serializable]
         private struct StatSpec
@@ -49,8 +52,10 @@ namespace StarterAssets.Game.Components
             {
                 if (_stats.TryGetValue(id, out var stat))
                 {
+                    var oldValue = stat.Value;
                     stat.Value = Mathf.Clamp(value, 0, stat.MaxValue);
                     _stats[id] = stat;
+                    StatChangeEvent?.Invoke(id, oldValue, stat.Value);
                 }
                 else
                 {

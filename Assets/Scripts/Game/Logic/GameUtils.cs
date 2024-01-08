@@ -1,4 +1,5 @@
 ﻿using StarterAssets.Game.Components;
+using StarterAssets.Game.Data;
 using UnityEngine;
 
 namespace StarterAssets.Game.Logic
@@ -8,6 +9,7 @@ namespace StarterAssets.Game.Logic
     /// </summary>
     public static class GameUtils
     {
+        public delegate void StatChangeDelegate(ObjectStatId stat, int oldValue, int newValue);
         /// <summary>
         /// Retrieves a gameEntity from a collider. Encapsulates objects and scene hierarchy agreement
         /// </summary>

@@ -31,6 +31,7 @@ namespace StarterAssets.Game.Components
                 effectTarget.ApplyEffect(new EffectSpec(effectType, output));
             }
 
+            amount -= output;
         }
     }
 }
