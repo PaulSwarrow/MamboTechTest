@@ -7,10 +7,9 @@ using UnityEngine;
 
 namespace StarterAssets.Game.Components
 {
-    public class StatsComponent : MonoBehaviour
+    public class StatsComponent : MonoBehaviour, IEntityStats
     {
-        public event GameUtils.StatChangeDelegate StatChangeEvent;
-        //TODO: proper object initialization
+        public event IEntityStats.StatChangeDelegate StatChangeEvent;
         [Serializable]
         private struct StatSpec
         {
@@ -18,17 +17,18 @@ namespace StarterAssets.Game.Components
             public int MaxValue;
         }
 
+        //TODO: proper object initialization
         [SerializeField] private List<StatSpec> config;
 
-        private readonly Dictionary<ObjectStatId, ObjectStat> _stats = new ();
-        public IReadOnlyDictionary<ObjectStatId, ObjectStat> Values => _stats;
+        private readonly Dictionary<ObjectStatId, ObjectStatValue> _stats = new ();
+        public IReadOnlyDictionary<ObjectStatId, ObjectStatValue> Values => _stats;
 
 
         private void Awake()
         {
             foreach (var spec in config)
             {
-                _stats.Add(spec.Id, new ObjectStat(spec.MaxValue, spec.MaxValue));
+                _stats.Add(spec.Id, new ObjectStatValue(spec.MaxValue, spec.MaxValue));
             }
         }
 
@@ -47,28 +47,22 @@ namespace StarterAssets.Game.Components
         public int this[ObjectStatId id]
         {
 
-            get => _stats.TryGetValue(id, out var stat) ? stat.Value : 0;
+            get => _stats.TryGetValue(id, out var stat) ? stat.Current : 0;
             set
             {
                 if (_stats.TryGetValue(id, out var stat))
                 {
-                    var oldValue = stat.Value;
-                    stat.Value = Mathf.Clamp(value, 0, stat.MaxValue);
+                    value = Mathf.Clamp(value, 0, stat.Max);
+                    if(stat.Current == value) return;
+                    var oldValue = stat.Current;
+                    stat.Current = value;
                     _stats[id] = stat;
-                    StatChangeEvent?.Invoke(id, oldValue, stat.Value);
+                    StatChangeEvent?.Invoke(id, oldValue, value);
                 }
                 else
                 {
                     throw new Exception($"Can not apply value to non-existent stat");
                 }
-            }
-        }
-
-        private void Update()
-        {
-            if (_stats.TryGetValue(ObjectStatId.Health, out var data) && data.Value <= 0)
-            {
-                //DEAD!
             }
         }
     }

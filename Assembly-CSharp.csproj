@@ -43,7 +43,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Game\Components\EffectSourceComponent.cs" />
      <Compile Include="Assets\Scripts\Game\Components\StatsComponent.cs" />
-     <Compile Include="Assets\Scripts\Game\Data\ObjectStat.cs" />
+     <Compile Include="Assets\Scripts\Game\Data\ObjectStatValue.cs" />
      <Compile Include="Assets\Scripts\FirstPersonController.cs" />
      <Compile Include="Assets\Scripts\Game\Components\ProjectileComponent.cs" />
      <Compile Include="Assets\Mobile\Scripts\VirtualInputs\UIVirtualJoystick.cs" />
@@ -69,10 +69,11 @@
      <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
      <Compile Include="Assets\Scripts\Game\Interfaces\IGameEntity.cs" />
      <Compile Include="Assets\Scripts\Game\Logic\Statuses\ObjectStatus.cs" />
-     <Compile Include="Assets\Scripts\Game\Components\EntityGuiComponent.cs" />
+     <Compile Include="Assets\Scripts\Game\Components\PlayerLoggerComponent.cs" />
      <Compile Include="Assets\Scripts\Game\Interfaces\IEffectSource.cs" />
      <Compile Include="Assets\Scripts\Game\Components\DepletableEffectSourceComponent.cs" />
      <Compile Include="Assets\Scripts\Game\Components\ProjectileLauncherComponent.cs" />
+     <Compile Include="Assets\Scripts\Game\Interfaces\IEntityStats.cs" />
      <None Include="Assets\license.txt" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.11f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>

@@ -1,7 +1,8 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using StarterAssets.Game.Data;
 using StarterAssets.Game.Factories;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace StarterAssets.Game.Components
@@ -11,6 +12,8 @@ namespace StarterAssets.Game.Components
     {
         //Setup:
         [SerializeField] private bool isImmortal;
+        [SerializeField] private string damageLogTemplate = "{0} was damaged, health = {1}";
+        [SerializeField] private string deathLogTemplate = "I'm a {0}, and I was destroyed";
         
         
         private StatsComponent _stats;
@@ -21,6 +24,12 @@ namespace StarterAssets.Game.Components
         private void Awake()
         {
             _stats = GetComponent<StatsComponent>();
+            _stats.StatChangeEvent += OnStatChange;
+        }
+        private void OnDestroy()
+        {
+            
+            _stats.StatChangeEvent -= OnStatChange;
         }
 
         private void Start()
@@ -37,7 +46,7 @@ namespace StarterAssets.Game.Components
 
         }
 
-        public IReadOnlyDictionary<ObjectStatId, ObjectStat> Stats => _stats.Values;
+        public IEntityStats Stats => _stats;
         public IReadOnlyCollection<IObjectStatus> StatusInfo => _currentStatuses;
 
         private void AddStatus(IObjectStatus status)
@@ -69,5 +78,20 @@ namespace StarterAssets.Game.Components
                 }
             }
         }
+
+        private void OnStatChange(ObjectStatId stat, int oldValue, int newValue)
+        {
+            if (stat == ObjectStatId.Health)
+            {
+                if(oldValue > newValue)
+                    Debug.Log(string.Format(damageLogTemplate, name, newValue));
+
+                if (newValue == 0)
+                {
+                    Debug.Log(string.Format(deathLogTemplate, name));
+                }
+            }
+        }
+
     }
 }

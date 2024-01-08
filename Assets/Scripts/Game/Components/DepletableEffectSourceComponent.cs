@@ -24,7 +24,7 @@ namespace StarterAssets.Game.Components
             }
             
             //TODO remove hardcoded stat id!
-            output = Mathf.Min(output, effectTarget.Stats[ObjectStatId.Health].Delta);
+            output = Mathf.Min(output, effectTarget.Stats.Values[ObjectStatId.Health].Delta);
             if (output > 0)
             {
                 Debug.Log(usageMessage);

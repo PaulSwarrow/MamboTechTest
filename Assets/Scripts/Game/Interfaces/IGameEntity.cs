@@ -11,6 +11,6 @@ namespace StarterAssets.Game.Components
     {
         void ApplyEffect(EffectSpec effect);
         
-        IReadOnlyDictionary<ObjectStatId, ObjectStat> Stats { get; }
+        IEntityStats Stats { get; }
     }
 }
