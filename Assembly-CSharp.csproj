@@ -49,7 +49,27 @@
      <Compile Include="Assets\Mobile\Scripts\CanvasInputs\UICanvasControllerInput.cs" />
      <Compile Include="Assets\Mobile\Scripts\Utilities\MobileDisableAutoSwitchControls.cs" />
      <Compile Include="Assets\Scripts\BasicRigidBodyPush.cs" />
+     <Compile Include="Assets\Scripts\Game\Logic\GameUtils.cs" />
+     <Compile Include="Assets\Scripts\Game\Logic\Statuses\Impl\ChangeStatObjectStatus.cs" />
+     <Compile Include="Assets\Scripts\Game\Logic\Statuses\Impl\ImmortalityObjectStatus.cs" />
+     <Compile Include="Assets\Scripts\Game\Logic\Statuses\Impl\ImmuneObjectStatus.cs" />
+     <Compile Include="Assets\Scripts\Game\Logic\Statuses\ObjectStatus.cs" />
      <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+     <Compile Include="Assets\Scripts\Game\Components\StatsComponent.cs" />
+     <Compile Include="Assets\Scripts\Game\Components\ProjectileComponent.cs" />
+     <Compile Include="Assets\Scripts\Game\Components\TriggerComponent.cs" />
+     <Compile Include="Assets\Scripts\Game\Data\ObjectStatId.cs" />
+     <Compile Include="Assets\Scripts\Game\Data\EffectType.cs" />
+     <Compile Include="Assets\Scripts\Game\Data\EffectSpec.cs" />
+     <Compile Include="Assets\Scripts\Game\Components\EffectSourceComponent.cs" />
+     <Compile Include="Assets\Scripts\Game\Configs\EffectConfig.cs" />
+     <Compile Include="Assets\Scripts\Game\Data\ObjectStat.cs" />
+     <Compile Include="Assets\Scripts\Game\Interfaces\IGameEntity.cs" />
+     <Compile Include="Assets\Scripts\Game\Components\GameEntity.cs" />
+     <Compile Include="Assets\Scripts\Game\Data\StatsInteractionType.cs" />
+     <Compile Include="Assets\Scripts\Game\Data\EffectMode.cs" />
+     <Compile Include="Assets\Scripts\Game\Factories\StatusFactory.cs" />
+     <Compile Include="Assets\Scripts\Game\Interfaces\IObjectStatus.cs" />
      <None Include="Assets\license.txt" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.11f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
@@ -831,8 +851,6 @@
      <Reference Include="Unity.VisualScripting.State">
      <HintPath>C:\Users\Paul\Documents\Work\MamboTechTest\MamboTechTest\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
      </Reference>
-  </ItemGroup>
-  <ItemGroup>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
