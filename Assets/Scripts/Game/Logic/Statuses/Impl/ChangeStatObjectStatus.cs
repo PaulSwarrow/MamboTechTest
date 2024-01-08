@@ -33,6 +33,7 @@ namespace StarterAssets.Game.Model.Impl
         }
 
         public override bool IsDamage => _sign < 0;
+        public override string Info => $"{_type}: {_value} "+ LifeSpanInfo;
 
         public override EffectType ImmuneTarget => _type;
 

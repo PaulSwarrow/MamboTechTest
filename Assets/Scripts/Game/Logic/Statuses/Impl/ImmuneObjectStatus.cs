@@ -22,6 +22,7 @@ namespace StarterAssets.Game.Model.Impl
         }
 
         public override bool IsDamage => false;
+        public override string Info => $"Immune to: {_immuneTo} {LifeSpanInfo}";
         public override EffectType ImmuneTarget => EffectType.None;
 
         protected override void Tick()

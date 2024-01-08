@@ -12,7 +12,7 @@ namespace StarterAssets.Game.Model
         protected int Period;
         
         private bool _aborted;
-        private float _totalTime;
+        protected float TotalTime;
         private int _count;
 
         protected ObjectStatus(StatsComponent target, int duration, int period)
@@ -22,10 +22,19 @@ namespace StarterAssets.Game.Model
             Period = period;
         }
 
-        public bool IsOver => Duration > 0 && _totalTime >= Duration || _aborted;
+        public bool IsOver => Duration > 0 && TotalTime >= Duration || _aborted;
         public abstract bool IsDamage { get; }
+        public abstract string Info { get; }
 
-
+        protected string LifeSpanInfo
+        {
+            get
+            {
+                if (Duration > 0) return $"for {Mathf.CeilToInt(Duration - TotalTime)}s T: {Period}";
+                if (Duration < 0) return "permanently";
+                return "instantly";
+            }
+        }
         public void Start()
         {
             Tick();
@@ -34,11 +43,11 @@ namespace StarterAssets.Game.Model
         public void Update(float deltaTime)
         {
             if (Duration == 0) return;
-            _totalTime += deltaTime;
+            TotalTime += deltaTime;
 
             if (Period > 0 && !_aborted)
             {
-                var count = Mathf.FloorToInt(_totalTime / Period);
+                var count = Mathf.FloorToInt(TotalTime / Period);
                 if (count > _count)
                 {
                     _count = count;

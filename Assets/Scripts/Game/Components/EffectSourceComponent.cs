@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace StarterAssets.Game.Components
 {
-    public class EffectSourceComponent : MonoBehaviour
+    public class EffectSourceComponent : MonoBehaviour, IEffectSource
     {
         [SerializeField] private EffectSpec[] _effects;
 

@@ -14,11 +14,11 @@ namespace StarterAssets.Game.Model.Impl
             if(other.IsDamage) other.Finish("Immortality");
         }
 
+        public override string Info => $"Immortal "+ LifeSpanInfo;
         public override bool IsDamage => false;
         public override EffectType ImmuneTarget => EffectType.None;
         protected override void Tick()
         {
-            throw new System.NotImplementedException();
         }
     }
 }

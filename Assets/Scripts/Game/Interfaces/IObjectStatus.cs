@@ -14,6 +14,7 @@ namespace StarterAssets.Game.Components
         
         bool IsOver { get; }
         bool IsDamage { get; }
+        string Info { get; }
 
         void Finish(string cause);
     }

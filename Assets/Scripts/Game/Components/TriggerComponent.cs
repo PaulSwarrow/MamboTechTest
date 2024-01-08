@@ -4,14 +4,14 @@ using UnityEngine;
 
 namespace StarterAssets.Game.Components
 {
-    [RequireComponent(typeof(EffectSourceComponent))]
+    [RequireComponent(typeof(IEffectSource))]
     public class TriggerComponent : MonoBehaviour
     { 
-        private EffectSourceComponent _effectProvider;
+        private IEffectSource _effectProvider;
         
         private void Awake()
         {
-            _effectProvider = GetComponent<EffectSourceComponent>();
+            _effectProvider = GetComponent<IEffectSource>();
         }
         
         private void OnTriggerEnter(Collider other)

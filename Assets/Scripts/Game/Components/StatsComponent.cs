@@ -7,7 +7,27 @@ namespace StarterAssets.Game.Components
 {
     public class StatsComponent : MonoBehaviour
     {
-        private Dictionary<ObjectStatId, ObjectStat> _stats;
+        //TODO: proper object initialization
+        [Serializable]
+        private struct StatSpec
+        {
+            public ObjectStatId Id;
+            public int MaxValue;
+        }
+
+        [SerializeField] private List<StatSpec> config;
+
+        private readonly Dictionary<ObjectStatId, ObjectStat> _stats = new ();
+        public IReadOnlyDictionary<ObjectStatId, ObjectStat> Values => _stats;
+
+
+        private void Awake()
+        {
+            foreach (var spec in config)
+            {
+                _stats.Add(spec.Id, new ObjectStat(spec.MaxValue, spec.MaxValue));
+            }
+        }
 
         /// <summary>
         /// Provides information if a stat exists
@@ -36,6 +56,14 @@ namespace StarterAssets.Game.Components
                 {
                     throw new Exception($"Can not apply value to non-existent stat");
                 }
+            }
+        }
+
+        private void Update()
+        {
+            if (_stats.TryGetValue(ObjectStatId.Health, out var data) && data.Value <= 0)
+            {
+                //DEAD!
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using StarterAssets.Game.Data;
+﻿using System.Collections.Generic;
+using StarterAssets.Game.Data;
 using UnityEngine;
 
 namespace StarterAssets.Game.Components
@@ -9,5 +10,7 @@ namespace StarterAssets.Game.Components
     public interface IGameEntity 
     {
         void ApplyEffect(EffectSpec effect);
+        
+        IReadOnlyDictionary<ObjectStatId, ObjectStat> Stats { get; }
     }
 }
