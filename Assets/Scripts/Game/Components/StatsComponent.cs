@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using StarterAssets.Game.Data;
-using StarterAssets.Game.Logic;
-using UnityEditorInternal;
 using UnityEngine;
 
 namespace StarterAssets.Game.Components
@@ -10,15 +8,8 @@ namespace StarterAssets.Game.Components
     public class StatsComponent : MonoBehaviour, IEntityStats
     {
         public event IEntityStats.StatChangeDelegate StatChangeEvent;
-        [Serializable]
-        private struct StatSpec
-        {
-            public ObjectStatId Id;
-            public int MaxValue;
-        }
-
         //TODO: proper object initialization
-        [SerializeField] private List<StatSpec> config;
+        [SerializeField] private int health;
 
         private readonly Dictionary<ObjectStatId, ObjectStatValue> _stats = new ();
         public IReadOnlyDictionary<ObjectStatId, ObjectStatValue> Values => _stats;
@@ -26,10 +17,7 @@ namespace StarterAssets.Game.Components
 
         private void Awake()
         {
-            foreach (var spec in config)
-            {
-                _stats.Add(spec.Id, new ObjectStatValue(spec.MaxValue, spec.MaxValue));
-            }
+            _stats.Add(ObjectStatId.Health, new ObjectStatValue(health, health));
         }
 
         /// <summary>
