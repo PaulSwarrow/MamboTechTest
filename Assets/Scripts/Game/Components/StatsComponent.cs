@@ -9,7 +9,7 @@ namespace StarterAssets.Game.Components
     {
         public event IEntityStats.StatChangeDelegate StatChangeEvent;
         //TODO: proper object initialization
-        [SerializeField] private int health;
+        [SerializeField] private int health = 100;
 
         private readonly Dictionary<ObjectStatId, ObjectStatValue> _stats = new ();
         public IReadOnlyDictionary<ObjectStatId, ObjectStatValue> Values => _stats;

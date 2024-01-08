@@ -74,6 +74,7 @@
      <Compile Include="Assets\Scripts\Game\Components\DepletableEffectSourceComponent.cs" />
      <Compile Include="Assets\Scripts\Game\Components\ProjectileLauncherComponent.cs" />
      <Compile Include="Assets\Scripts\Game\Interfaces\IEntityStats.cs" />
+     <Compile Include="Assets\Scripts\Game\Components\DirectEffectComponent.cs" />
      <None Include="Assets\license.txt" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.11f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>

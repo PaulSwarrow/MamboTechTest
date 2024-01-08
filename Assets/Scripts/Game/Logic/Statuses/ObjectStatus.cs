@@ -31,7 +31,7 @@ namespace StarterAssets.Game.Model
             get
             {
                 if (Duration > 0) return $"for {Mathf.CeilToInt(Duration - TotalTime)}s T: {Period}";
-                if (Duration < 0) return "permanently";
+                if (Duration < 0) return $"permanently, T: {Period}";
                 return "instantly";
             }
         }

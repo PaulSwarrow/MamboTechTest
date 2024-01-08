@@ -46,7 +46,8 @@ namespace StarterAssets.Game.Model.Impl
         }
         private void MergeWith(ChangeStatObjectStatus status)
         {
-            Duration += status.Duration;
+            if (Duration == -1 || status.Duration == -1) Duration = -1;//permanent status priority
+            else Duration += status.Duration;
             Period = Mathf.Min(Period, status.Period, 1);
             _value = Mathf.Max(_value, status._value);
         }
