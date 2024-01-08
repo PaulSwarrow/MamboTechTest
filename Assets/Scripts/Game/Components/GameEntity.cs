@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using StarterAssets.Game.Data;
 using StarterAssets.Game.Factories;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace StarterAssets.Game.Components

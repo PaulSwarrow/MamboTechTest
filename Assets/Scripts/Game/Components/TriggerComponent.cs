@@ -7,18 +7,21 @@ namespace StarterAssets.Game.Components
     [RequireComponent(typeof(IEffectSource))]
     public class TriggerComponent : MonoBehaviour
     { 
-        private IEffectSource _effectProvider;
+        private IEffectSource[] _effectProvider;
         
         private void Awake()
         {
-            _effectProvider = GetComponent<IEffectSource>();
+            _effectProvider = GetComponents<IEffectSource>();
         }
         
         private void OnTriggerEnter(Collider other)
         {
             if (GameUtils.GetEntity(other, out var effectTarget))
             {
-                _effectProvider.ApplyEffect(effectTarget);
+                foreach (var effectSource in _effectProvider)
+                {
+                    effectSource.ApplyEffect(effectTarget);
+                }
             }
         }
     }
