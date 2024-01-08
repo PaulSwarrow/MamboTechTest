@@ -12,6 +12,7 @@ namespace StarterAssets.Game.Components
     {
         //Setup:
         [SerializeField] private bool isImmortal;
+        [SerializeField] private bool immuneToPoison;
         [SerializeField] private string damageLogTemplate = "{0} was damaged, health = {1}";
         [SerializeField] private string deathLogTemplate = "I'm a {0}, and I was destroyed";
         
@@ -37,6 +38,11 @@ namespace StarterAssets.Game.Components
             if (isImmortal)
             {
                 AddStatus(_statusFactory.CreateImmortality(_stats));
+            }
+
+            if (immuneToPoison)
+            {
+                AddStatus(_statusFactory.Create(_stats, new EffectSpec(EffectType.Poison, EffectMode.Immune, -1,0,0)));
             }
         }
 
