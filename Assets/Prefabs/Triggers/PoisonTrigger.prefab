@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8794541779452378606}
   - component: {fileID: 8794541779452378607}
   - component: {fileID: 8794541779452378592}
-  - component: {fileID: 8232907875948258988}
   - component: {fileID: 8809180663585481801}
+  - component: {fileID: 8014845300722812729}
   m_Layer: 0
   m_Name: PoisonTrigger
   m_TagString: Untagged
@@ -99,24 +99,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8232907875948258988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8794541779452378593}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4bda9f0ae264195aabcee18bc32e447, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _effects:
-  - Type: 2
-    Mode: 0
-    Duration: 10
-    Period: 1
-    Value: 1
 --- !u!114 &8809180663585481801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,3 +111,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85f041886ab84bdf832c552edb8f9d16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8014845300722812729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8794541779452378593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc16ecbd8fa41b0aa1036d6746f4b6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 10
+  period: 1
+  damage: 10

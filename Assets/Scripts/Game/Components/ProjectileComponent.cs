@@ -1,11 +1,9 @@
 ﻿using System;
 using StarterAssets.Game.Logic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace StarterAssets.Game.Components
 {
-    [RequireComponent(typeof(EffectSourceComponent))]
     public class ProjectileComponent : MonoBehaviour
     {
         [SerializeField] private float radius = 1;
@@ -14,7 +12,7 @@ namespace StarterAssets.Game.Components
         [SerializeField] private int lifeSpan = 5;
         
         private Transform _self;
-        private EffectSourceComponent _effectProvider;
+        private IEffectSource[] _effectSources;
 
         /// <summary>
         /// External handler used to store the projectile into the pool.
@@ -27,7 +25,7 @@ namespace StarterAssets.Game.Components
         private void Awake()
         {
             _self = transform;
-            _effectProvider = GetComponent<EffectSourceComponent>();
+            _effectSources = GetComponents<IEffectSource>();
         }
 
         private void OnEnable()
@@ -49,7 +47,10 @@ namespace StarterAssets.Game.Components
             {
                 if (GameUtils.GetEntity(hit.collider, out var effectTarget))
                 {
-                    _effectProvider.ApplyEffect(effectTarget);
+                    foreach (var source in _effectSources)
+                    {
+                        source.ApplyEffect(effectTarget);
+                    }
                 }
 
                 Die();

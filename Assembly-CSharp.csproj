@@ -41,7 +41,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Game\Components\EffectSourceComponent.cs" />
+     <Compile Include="Assets\Scripts\Game\Components\EffectSources\DamageEffectSourceComponent.cs" />
      <Compile Include="Assets\Scripts\Game\Components\StatsComponent.cs" />
      <Compile Include="Assets\Scripts\Game\Data\ObjectStatValue.cs" />
      <Compile Include="Assets\Scripts\FirstPersonController.cs" />
@@ -49,33 +49,34 @@
      <Compile Include="Assets\Mobile\Scripts\VirtualInputs\UIVirtualJoystick.cs" />
      <Compile Include="Assets\Mobile\Scripts\VirtualInputs\UIVirtualTouchZone.cs" />
      <Compile Include="Assets\Scripts\Game\Data\EffectType.cs" />
+     <Compile Include="Assets\Scripts\Game\Components\DirectEffectComponent.cs" />
      <Compile Include="Assets\Scripts\Game\Components\GameEntity.cs" />
      <Compile Include="Assets\Scripts\Game\Logic\Statuses\Impl\ImmortalityObjectStatus.cs" />
      <Compile Include="Assets\Scripts\Game\Data\EffectMode.cs" />
      <Compile Include="Assets\Scripts\Game\Data\EffectSpec.cs" />
      <Compile Include="Assets\Scripts\Game\Logic\Statuses\Impl\ChangeStatObjectStatus.cs" />
+     <Compile Include="Assets\Scripts\Game\Interfaces\IEntityStats.cs" />
      <Compile Include="Assets\Mobile\Scripts\VirtualInputs\UIVirtualButton.cs" />
      <Compile Include="Assets\InputSystem\StarterAssetsInputs.cs" />
      <Compile Include="Assets\Scripts\Game\Data\StatsInteractionType.cs" />
      <Compile Include="Assets\Scripts\Game\Logic\Statuses\Impl\ImmuneObjectStatus.cs" />
      <Compile Include="Assets\Mobile\Scripts\CanvasInputs\UICanvasControllerInput.cs" />
+     <Compile Include="Assets\Scripts\Game\Utils\Billboard.cs" />
      <Compile Include="Assets\Scripts\Game\Data\ObjectStatId.cs" />
      <Compile Include="Assets\Mobile\Scripts\Utilities\MobileDisableAutoSwitchControls.cs" />
+     <Compile Include="Assets\Scripts\Game\Interfaces\IEffectSource.cs" />
      <Compile Include="Assets\Scripts\Game\Factories\StatusFactory.cs" />
      <Compile Include="Assets\Scripts\Game\Logic\GameUtils.cs" />
      <Compile Include="Assets\Scripts\Game\Interfaces\IObjectStatus.cs" />
      <Compile Include="Assets\Scripts\Game\Components\TriggerComponent.cs" />
      <Compile Include="Assets\Scripts\BasicRigidBodyPush.cs" />
      <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
-     <Compile Include="Assets\Scripts\Game\Interfaces\IGameEntity.cs" />
-     <Compile Include="Assets\Scripts\Game\Logic\Statuses\ObjectStatus.cs" />
      <Compile Include="Assets\Scripts\Game\Components\PlayerLoggerComponent.cs" />
-     <Compile Include="Assets\Scripts\Game\Interfaces\IEffectSource.cs" />
-     <Compile Include="Assets\Scripts\Game\Components\DepletableEffectSourceComponent.cs" />
+     <Compile Include="Assets\Scripts\Game\Interfaces\IGameEntity.cs" />
+     <Compile Include="Assets\Scripts\Game\Components\EffectSources\PoisonEffectSourceComponent.cs" />
      <Compile Include="Assets\Scripts\Game\Components\ProjectileLauncherComponent.cs" />
-     <Compile Include="Assets\Scripts\Game\Interfaces\IEntityStats.cs" />
-     <Compile Include="Assets\Scripts\Game\Components\DirectEffectComponent.cs" />
-     <Compile Include="Assets\Scripts\Game\Utils\Billboard.cs" />
+     <Compile Include="Assets\Scripts\Game\Components\EffectSources\HealEffectSourceComponent.cs" />
+     <Compile Include="Assets\Scripts\Game\Logic\Statuses\ObjectStatus.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

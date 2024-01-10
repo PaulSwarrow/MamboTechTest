@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4791022995778322332}
   - component: {fileID: 8198729148119066183}
   - component: {fileID: 1729742014242254705}
-  - component: {fileID: 5857568265798831409}
   - component: {fileID: 1781122880241063682}
   m_Layer: 0
   m_Name: BaseProjectile
@@ -85,19 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5857568265798831409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1113533218272202369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4bda9f0ae264195aabcee18bc32e447, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _effects: []
 --- !u!114 &1781122880241063682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,3 +101,4 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 769
+  lifeSpan: 5

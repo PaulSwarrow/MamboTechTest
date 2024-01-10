@@ -3,14 +3,15 @@ using UnityEngine;
 
 namespace StarterAssets.Game.Components
 {
-    public class DepletableEffectSourceComponent : MonoBehaviour, IEffectSource
+    public class HealEffectSourceComponent : MonoBehaviour, IEffectSource
     {
-        [SerializeField] public EffectType effectType;
-        [SerializeField] public int amount;
-        [SerializeField] public int maxOutput;
-        
-        [SerializeField]
-        private string depletedMessage;
+        [Tooltip("Total amount before depletion")] [SerializeField]
+        public int amount = 100;
+
+        [Tooltip("Maximum heal per interaction")] [SerializeField]
+        public int maxOutput = 10;
+
+        [SerializeField] private string depletedMessage;
 
         [SerializeField] private string usageMessage;
 
@@ -20,17 +21,17 @@ namespace StarterAssets.Game.Components
             var output = Mathf.Min(amount, maxOutput);
             if (output == 0)
             {
-                if(!string.IsNullOrEmpty(depletedMessage))
+                if (!string.IsNullOrEmpty(depletedMessage))
                     Debug.Log(depletedMessage);
             }
-            
+
             //TODO remove hardcoded stat id!
             output = Mathf.Min(output, effectTarget.Stats.Values[ObjectStatId.Health].Delta);
             if (output > 0)
             {
-                if(!string.IsNullOrEmpty(usageMessage))
+                if (!string.IsNullOrEmpty(usageMessage))
                     Debug.Log(usageMessage);
-                effectTarget.ApplyEffect(new EffectSpec(effectType, output));
+                effectTarget.ApplyEffect(new EffectSpec(EffectType.Heal, output));
             }
 
             amount -= output;

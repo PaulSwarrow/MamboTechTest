@@ -74,6 +74,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5857568265798831409, guid: 96a3da10f9e401240a15c301188f7576,
         type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5857568265798831409, guid: 96a3da10f9e401240a15c301188f7576,
+        type: 3}
       propertyPath: _effects.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -109,3 +114,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a3da10f9e401240a15c301188f7576, type: 3}
+--- !u!1 &3447634850394780374 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1113533218272202369, guid: 96a3da10f9e401240a15c301188f7576,
+    type: 3}
+  m_PrefabInstance: {fileID: 2354367956634303575}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1500886932948075014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3447634850394780374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4bda9f0ae264195aabcee18bc32e447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+--- !u!114 &1853138258476727265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3447634850394780374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc16ecbd8fa41b0aa1036d6746f4b6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 10
+  period: 2
+  damage: 5

@@ -1,20 +1,17 @@
-﻿using System;
-using System.Collections;
-using StarterAssets.Game.Data;
+﻿using System.Collections;
 using UnityEngine;
 
 namespace StarterAssets.Game.Components
 {
-    [RequireComponent(typeof(IEffectSource))]
     public class DirectEffectComponent : MonoBehaviour
     {
         [SerializeField] private GameObject target;
         [SerializeField] private int delay = 10;
-        private IEffectSource _effectSource;
+        private IEffectSource[] _effectSources;
 
         private void Start()
         {
-            _effectSource = GetComponent<IEffectSource>();
+            _effectSources = GetComponents<IEffectSource>();
             StartCoroutine(DelayCoroutine());
         }
 
@@ -25,8 +22,12 @@ namespace StarterAssets.Game.Components
                 Debug.LogError("Effect target is invalid!");
                 yield break;
             }
+
             yield return new WaitForSeconds(delay);
-            _effectSource.ApplyEffect(entity);
+            foreach (var effectSource in _effectSources)
+            {
+                effectSource.ApplyEffect(entity);
+            }
         }
     }
 }

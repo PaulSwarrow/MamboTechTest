@@ -1,24 +1,22 @@
-﻿using System;
-using StarterAssets.Game.Logic;
+﻿using StarterAssets.Game.Logic;
 using UnityEngine;
 
 namespace StarterAssets.Game.Components
 {
-    [RequireComponent(typeof(IEffectSource))]
     public class TriggerComponent : MonoBehaviour
-    { 
-        private IEffectSource[] _effectProvider;
-        
+    {
+        private IEffectSource[] _effectSources;
+
         private void Awake()
         {
-            _effectProvider = GetComponents<IEffectSource>();
+            _effectSources = GetComponents<IEffectSource>();
         }
-        
+
         private void OnTriggerEnter(Collider other)
         {
             if (GameUtils.GetEntity(other, out var effectTarget))
             {
-                foreach (var effectSource in _effectProvider)
+                foreach (var effectSource in _effectSources)
                 {
                     effectSource.ApplyEffect(effectTarget);
                 }

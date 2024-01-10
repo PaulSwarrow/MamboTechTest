@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5261218431272582464}
   - component: {fileID: 6950340406551891072}
-  - component: {fileID: 1756847116664062936}
+  - component: {fileID: 9215238739724852533}
   m_Layer: 8
   m_Name: SelfPoisoning
   m_TagString: Untagged
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 8616685848737228372}
   delay: 10
---- !u!114 &1756847116664062936
+--- !u!114 &9215238739724852533
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -56,15 +56,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1541340445815597849}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4bda9f0ae264195aabcee18bc32e447, type: 3}
+  m_Script: {fileID: 11500000, guid: efc16ecbd8fa41b0aa1036d6746f4b6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _effects:
-  - Type: 2
-    Mode: 0
-    Duration: -1
-    Period: 2
-    Value: 5
+  duration: -1
+  period: 1
+  damage: 10
 --- !u!1 &4135013735270702863
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,6 +441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isImmortal: 0
+  immuneToPoison: 0
   damageLogTemplate: '{0} was damaged, health = {1}'
   deathLogTemplate: I'm a {0}, and I was destroyed
 --- !u!114 &5197668606490357696
