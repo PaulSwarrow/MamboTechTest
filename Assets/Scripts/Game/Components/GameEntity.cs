@@ -14,8 +14,7 @@ namespace Game.Components
         [SerializeField] private bool immuneToPoison;
         [SerializeField] private string damageLogTemplate = "{0} was damaged, health = {1}";
         [SerializeField] private string deathLogTemplate = "I'm a {0}, and I was destroyed";
-        
-        
+
         private StatsComponent _stats;
         private readonly List<IObjectStatus> _currentStatuses = new ();
         //TODO inject
@@ -94,6 +93,7 @@ namespace Game.Components
                 if (newValue == 0)
                 {
                     Debug.Log(string.Format(deathLogTemplate, name));
+                    //Death logic here
                 }
             }
         }
