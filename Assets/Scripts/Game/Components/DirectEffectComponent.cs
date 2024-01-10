@@ -1,8 +1,12 @@
 ﻿using System.Collections;
+using Game.Interfaces;
 using UnityEngine;
 
-namespace StarterAssets.Game.Components
+namespace Game.Components
 {
+    /// <summary>
+    /// Applies effect to the specified game object if possible.
+    /// </summary>
     public class DirectEffectComponent : MonoBehaviour
     {
         [SerializeField] private GameObject target;

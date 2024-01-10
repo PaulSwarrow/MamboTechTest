@@ -1,7 +1,8 @@
-﻿using StarterAssets.Game.Components;
-using StarterAssets.Game.Data;
+﻿using Game.Components;
+using Game.Data;
+using Game.Interfaces;
 
-namespace StarterAssets.Game.Model.Impl
+namespace Game.Logic.Statuses.Impl
 {
     public class ImmortalityObjectStatus : ObjectStatus
     {

@@ -1,9 +1,13 @@
 ﻿using System;
-using StarterAssets.Game.Logic;
+using Game.Interfaces;
+using Game.Logic;
 using UnityEngine;
 
-namespace StarterAssets.Game.Components
+namespace Game.Components
 {
+    /// <summary>
+    /// Covers movement behavior and target hit
+    /// </summary>
     public class ProjectileComponent : MonoBehaviour
     {
         [SerializeField] private float radius = 1;

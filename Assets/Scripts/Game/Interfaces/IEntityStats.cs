@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using StarterAssets.Game.Data;
-using StarterAssets.Game.Logic;
+using Game.Data;
 
-namespace StarterAssets.Game.Components
+namespace Game.Interfaces
 {
     public interface IEntityStats
     {
         public delegate void StatChangeDelegate(ObjectStatId stat, int oldValue, int newValue);
+
         event StatChangeDelegate StatChangeEvent;
         bool HasStat(ObjectStatId id);
 
@@ -17,6 +17,7 @@ namespace StarterAssets.Game.Components
         /// <param name="id"></param>
         /// <exception cref="Exception"></exception>
         public int this[ObjectStatId id] { get; }
+
         IReadOnlyDictionary<ObjectStatId, ObjectStatValue> Values { get; }
     }
 }

@@ -1,14 +1,13 @@
 ﻿using System;
-using StarterAssets.Game.Components;
-using StarterAssets.Game.Data;
-using StarterAssets.Game.Model;
-using StarterAssets.Game.Model.Impl;
+using Game.Components;
+using Game.Data;
+using Game.Interfaces;
+using Game.Logic.Statuses.Impl;
 
-namespace StarterAssets.Game.Factories
+namespace Game.Factories
 {
     public class StatusFactory
     {
-
         public IObjectStatus Create(StatsComponent component, EffectSpec spec)
         {
             switch (spec.Mode)

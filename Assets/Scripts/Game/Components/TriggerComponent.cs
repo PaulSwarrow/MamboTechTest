@@ -1,8 +1,12 @@
-﻿using StarterAssets.Game.Logic;
+﻿using Game.Interfaces;
+using Game.Logic;
 using UnityEngine;
 
-namespace StarterAssets.Game.Components
+namespace Game.Components
 {
+    /// <summary>
+    /// Applies effects when an object enters the trigger
+    /// </summary>
     public class TriggerComponent : MonoBehaviour
     {
         private IEffectSource[] _effectSources;

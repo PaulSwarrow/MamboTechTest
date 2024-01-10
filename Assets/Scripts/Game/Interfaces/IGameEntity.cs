@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-using StarterAssets.Game.Data;
-using UnityEngine;
+﻿using Game.Data;
 
-namespace StarterAssets.Game.Components
+namespace Game.Interfaces
 {
     /// <summary>
-    /// Facade for all game entities. All object interactions should be though this component to keep the logic clear
+    /// Facade for all game entities. All object interactions should be through this component to keep the logic clear
     /// </summary>
     public interface IGameEntity 
     {

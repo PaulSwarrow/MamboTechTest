@@ -1,8 +1,7 @@
-﻿using StarterAssets.Game.Components;
-using StarterAssets.Game.Data;
+﻿using Game.Interfaces;
 using UnityEngine;
 
-namespace StarterAssets.Game.Logic
+namespace Game.Logic
 {
     /// <summary>
     /// Accumulates common approaches for game logic operations

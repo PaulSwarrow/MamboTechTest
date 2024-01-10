@@ -1,9 +1,13 @@
-﻿using StarterAssets.Game.Data;
+﻿using Game.Data;
+using Game.Interfaces;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace StarterAssets.Game.Components
+namespace Game.Components.EffectSources
 {
+    /// <summary>
+    /// Provides poison effect source.
+    /// Todo: split effect source behavior and effect settings. Effect spec may be implemented with Odin inspector ObjectPicker
+    /// </summary>
     public class PoisonEffectSourceComponent : MonoBehaviour, IEffectSource
     {
         [Tooltip("Set to -1 for permanent status")]

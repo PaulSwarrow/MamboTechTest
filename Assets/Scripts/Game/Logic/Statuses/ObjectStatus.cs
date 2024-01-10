@@ -1,8 +1,9 @@
-﻿using StarterAssets.Game.Components;
-using StarterAssets.Game.Data;
+﻿using Game.Components;
+using Game.Data;
+using Game.Interfaces;
 using UnityEngine;
 
-namespace StarterAssets.Game.Model
+namespace Game.Logic.Statuses
 {
     public abstract class ObjectStatus : IObjectStatus
     {

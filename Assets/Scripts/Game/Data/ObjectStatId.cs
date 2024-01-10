@@ -1,4 +1,4 @@
-﻿namespace StarterAssets.Game.Data
+﻿namespace Game.Data
 {
     public enum ObjectStatId
     {

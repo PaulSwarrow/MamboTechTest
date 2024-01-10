@@ -1,9 +1,11 @@
-﻿using System;
-using StarterAssets.Game.Data;
+﻿using Game.Data;
 using UnityEngine;
 
-namespace StarterAssets.Game.Components
+namespace Game.Components
 {
+    /// <summary>
+    /// Player debug behavior: gui + specific logs
+    /// </summary>
     [RequireComponent(typeof(GameEntity))]
     public class PlayerLoggerComponent : MonoBehaviour
     {
@@ -28,11 +30,11 @@ namespace StarterAssets.Game.Components
 
         private void OnGUI()
         {
-            var rect = new Rect(10, 10, 200, 
+            var rect = new Rect(10, 10, 200,
                 25 * _entity.Stats.Values.Count +
                 25 * _entity.StatusInfo.Count
                 + 25
-                );
+            );
             GUILayout.BeginArea(rect, GUI.skin.box);
             GUILayout.Box("Stats");
             foreach (var stat in _entity.Stats.Values)
@@ -44,17 +46,16 @@ namespace StarterAssets.Game.Components
             {
                 GUILayout.Label($"{status.Info}");
             }
-            
+
             GUILayout.EndArea();
         }
-        
+
         private void OnStatChange(ObjectStatId stat, int oldValue, int newValue)
         {
             if (stat == ObjectStatId.Health)
             {
-                if(oldValue > newValue)
+                if (oldValue > newValue)
                     Debug.Log(damageLog);
-
             }
         }
     }

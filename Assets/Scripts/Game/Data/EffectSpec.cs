@@ -1,8 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-namespace StarterAssets.Game.Data
+namespace Game.Data
 {
+    /// <summary>
+    /// Internal way to define an effect
+    /// TODO: more flexible approach is possible with a config composing strategies for lifespan, interaction and the effect logic
+    /// </summary>
     [Serializable]
     public struct EffectSpec
     {

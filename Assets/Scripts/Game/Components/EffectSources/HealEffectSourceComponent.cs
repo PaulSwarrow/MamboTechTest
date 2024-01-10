@@ -1,8 +1,13 @@
-﻿using StarterAssets.Game.Data;
+﻿using Game.Data;
+using Game.Interfaces;
 using UnityEngine;
 
-namespace StarterAssets.Game.Components
+namespace Game.Components.EffectSources
 {
+    /// <summary>
+    /// Provides heal effect source. implements depletion logic
+    /// Todo: split effect source behavior and effect settings. Effect spec may be implemented with Odin inspector ObjectPicker
+    /// </summary>
     public class HealEffectSourceComponent : MonoBehaviour, IEffectSource
     {
         [Tooltip("Total amount before depletion")] [SerializeField]

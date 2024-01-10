@@ -1,8 +1,9 @@
-﻿using StarterAssets.Game.Components;
-using StarterAssets.Game.Data;
+﻿using Game.Components;
+using Game.Data;
+using Game.Interfaces;
 using UnityEngine;
 
-namespace StarterAssets.Game.Model.Impl
+namespace Game.Logic.Statuses.Impl
 {
     public class ChangeStatObjectStatus : ObjectStatus
     {

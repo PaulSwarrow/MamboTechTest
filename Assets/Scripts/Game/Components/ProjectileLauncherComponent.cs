@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace StarterAssets.Game.Components
+namespace Game.Components
 {
+    /// <summary>
+    /// Gun behavior
+    /// </summary>
     public class ProjectileLauncherComponent : MonoBehaviour
     {
         [SerializeField] private ProjectileComponent projectilePrefab;
@@ -31,7 +32,6 @@ namespace StarterAssets.Game.Components
             projectile.transform.rotation = launchPoint.rotation;
             projectile.DestructionHandler = OnProjectileDie;
             projectile.gameObject.SetActive(true);
-
         }
 
         private void OnProjectileDie(ProjectileComponent projectile)

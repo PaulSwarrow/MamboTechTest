@@ -1,17 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using StarterAssets.Game.Data;
+using Game.Data;
+using Game.Interfaces;
 using UnityEngine;
 
-namespace StarterAssets.Game.Components
+namespace Game.Components
 {
+    /// <summary>
+    /// Stores stats for the entity
+    /// </summary>
     public class StatsComponent : MonoBehaviour, IEntityStats
     {
         public event IEntityStats.StatChangeDelegate StatChangeEvent;
-        //TODO: proper object initialization
+
+        //TODO: proper object initialization or (alternatively) _stats dictionary inspector
         [SerializeField] private int health = 100;
 
-        private readonly Dictionary<ObjectStatId, ObjectStatValue> _stats = new ();
+        private readonly Dictionary<ObjectStatId, ObjectStatValue> _stats = new();
         public IReadOnlyDictionary<ObjectStatId, ObjectStatValue> Values => _stats;
 
 
@@ -34,14 +39,13 @@ namespace StarterAssets.Game.Components
         /// <exception cref="Exception"></exception>
         public int this[ObjectStatId id]
         {
-
             get => _stats.TryGetValue(id, out var stat) ? stat.Current : 0;
             set
             {
                 if (_stats.TryGetValue(id, out var stat))
                 {
                     value = Mathf.Clamp(value, 0, stat.Max);
-                    if(stat.Current == value) return;
+                    if (stat.Current == value) return;
                     var oldValue = stat.Current;
                     stat.Current = value;
                     _stats[id] = stat;

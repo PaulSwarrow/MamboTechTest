@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
-using StarterAssets.Game.Data;
-using StarterAssets.Game.Factories;
+using Game.Data;
+using Game.Factories;
+using Game.Interfaces;
 using UnityEngine;
 
-namespace StarterAssets.Game.Components
+namespace Game.Components
 {
     [RequireComponent(typeof(StatsComponent))]
     public class GameEntity : MonoBehaviour, IGameEntity
