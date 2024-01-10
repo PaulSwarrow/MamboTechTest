@@ -7,23 +7,22 @@ namespace Game.Logic.Statuses
 {
     public abstract class ObjectStatus : IObjectStatus
     {
-        protected StatsComponent _target;
-
+        protected readonly StatsComponent Target;
         protected int Duration;
         protected int Period;
-        
+
         private bool _aborted;
-        protected float TotalTime;
+        private float _totalTime;
         private int _count;
 
         protected ObjectStatus(StatsComponent target, int duration, int period)
         {
-            _target = target;
+            Target = target;
             Duration = duration;
             Period = period;
         }
 
-        public bool IsOver => Duration > 0 && TotalTime >= Duration || _aborted;
+        public bool IsOver => Duration > 0 && _totalTime >= Duration || _aborted;
         public abstract bool IsDamage { get; }
         public abstract string Info { get; }
 
@@ -31,13 +30,15 @@ namespace Game.Logic.Statuses
         {
             get
             {
-                if (Duration > 0) return $"for {Mathf.CeilToInt(Duration - TotalTime)}s T: {Period}";
+                if (Duration > 0) return $"for {Mathf.CeilToInt(Duration - _totalTime)}s T: {Period}";
                 if (Duration < 0) return $"permanently, T: {Period}";
                 return "instantly";
             }
         }
+
         public void Start()
         {
+            if(_aborted) return;//may be cancelled before start!
             Tick();
             if (Duration == 0) _aborted = true;
         }
@@ -45,11 +46,11 @@ namespace Game.Logic.Statuses
         public void Update(float deltaTime)
         {
             if (Duration == 0) return;
-            TotalTime += deltaTime;
+            _totalTime += deltaTime;
 
             if (Period > 0 && !_aborted)
             {
-                var count = Mathf.FloorToInt(TotalTime / Period);
+                var count = Mathf.FloorToInt(_totalTime / Period);
                 if (count > _count)
                 {
                     _count = count;

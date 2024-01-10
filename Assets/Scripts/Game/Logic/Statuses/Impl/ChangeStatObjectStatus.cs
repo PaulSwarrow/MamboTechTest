@@ -40,9 +40,9 @@ namespace Game.Logic.Statuses.Impl
 
         protected override void Tick()
         {
-            if (_target.HasStat(_statId))
+            if (Target.HasStat(_statId))
             {
-                _target[_statId] += _sign * _value;
+                Target[_statId] += _sign * _value;
             }
         }
         private void MergeWith(ChangeStatObjectStatus status)
