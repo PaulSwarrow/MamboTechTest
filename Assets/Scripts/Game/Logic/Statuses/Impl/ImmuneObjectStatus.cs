@@ -4,6 +4,11 @@ using Game.Interfaces;
 
 namespace Game.Logic.Statuses.Impl
 {
+    /// <summary>
+    /// Provides immunity to specified effect.
+    /// Assumption: immunity is applied first. Otherwise two sided status interaction must be implemented
+    /// Task description says that immunity can not be gained during gameplay so the assumption is acceptable 
+    /// </summary>
     public class ImmuneObjectStatus : ObjectStatus
     {
         private readonly EffectType _immuneTo;
